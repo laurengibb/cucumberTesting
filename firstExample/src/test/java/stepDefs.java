@@ -14,6 +14,8 @@ public class stepDefs {
     public static ExtentReports report;
     public ExtentTest test;
 
+    createUser page;
+
     WebDriver driver;
 
     @Before
@@ -38,7 +40,7 @@ public class stepDefs {
 
     @Given("^correctly formatted deatils$")
     public void correctly_formatted_deatils() {
-        createUser page = PageFactory.initElements(driver, createUser.class);
+        page = PageFactory.initElements(driver, createUser.class);
         page.setUser("Lauren");
         page.setPass("password");
         //test note
@@ -62,16 +64,14 @@ public class stepDefs {
 
     @When("^I fill in the details$")
     public void i_fill_in_the_details()  {
-        createUser page3 = PageFactory.initElements(driver, createUser.class);
-        page3.creating();
+        page.creating();
         //test note
         test.log(LogStatus.INFO, "details correctly filled");
     }
 
     @When("^I click register$")
     public void i_click_register()  {
-        createUser page4 = PageFactory.initElements(driver, createUser.class);
-        page4.submit();
+        page.submit();
         //test note
         test.log(LogStatus.INFO, "registered");
     }
