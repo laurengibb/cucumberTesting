@@ -98,11 +98,6 @@ public class stepDefs {
         employeesPage.createLogin();
        //test note
        test.log(LogStatus.INFO, "Login Details created");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @When("^I click the Save button$")
@@ -124,7 +119,11 @@ public class stepDefs {
         employeesPage.searchEmployees();
         //test note
         test.log(LogStatus.INFO, "Searched for new employee");
-
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Then("^select them for inspection$")
@@ -133,10 +132,3 @@ public class stepDefs {
         throw new PendingException();
     }
 }
-
-
-//        try {
-//                Thread.sleep(20000);
-//                } catch (InterruptedException e) {
-//                e.printStackTrace();
-//                }
